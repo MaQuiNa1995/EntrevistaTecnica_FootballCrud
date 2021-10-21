@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import com.github.christian.football.Main;
+
+@SpringBootTest(classes = Main.class)
 class RigorousTest {
 
 	@Test
