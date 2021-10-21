@@ -42,7 +42,7 @@ Crear un CRUD para equipos de fútbol.
 # Requisitos DESEABLES
 - [ ] Obtener una lista de equipos ordenados por su capacidad de estadio
 - [ ] Poder actualizar los datos de un equipo, excepto la "Fecha de creación"
-- [ ] Poder borrar un equipo específico
+- [x] Poder borrar un equipo específico
 - [ ] Trazas de log
 - [ ] Pruebas unitarias y de integración
 - [ ] Documentar API
