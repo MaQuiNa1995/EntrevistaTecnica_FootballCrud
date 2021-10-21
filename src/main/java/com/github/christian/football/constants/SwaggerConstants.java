@@ -1,4 +1,4 @@
-package com.github.maquina1995.football.constants;
+package com.github.christian.football.constants;
 
 import lombok.experimental.UtilityClass;
 
@@ -9,7 +9,7 @@ public class SwaggerConstants {
 	public final String CONTACT_EMAIL = "maquina1995@gmail.com";
 	public final String PROJECT_CONTACT_NAME = "MaQuina1995";
 	public final String PROJECT_TITLE = "Swagger-MaQuiNa1995";
-	public final String PROJECT_CONTROLLER_PATH = "com.github.maquina1995.football.controller";
+	public final String PROJECT_CONTROLLER_PATH = "com.github.christian.football.controller";
 	public final String PROJECT_API_VERSION = "1.0.0";
 
 }

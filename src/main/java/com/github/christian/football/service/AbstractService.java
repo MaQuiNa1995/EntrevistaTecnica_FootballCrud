@@ -1,15 +1,15 @@
-package com.github.maquina1995.football.service;
+package com.github.christian.football.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.github.maquina1995.football.dto.AbstractDto;
+import com.github.christian.football.dto.AbstractOutputDto;
 
 /**
  * @param <K> Clave primaria
  * @param <D> Dto
  */
-public interface AbstractService<K, D extends AbstractDto<?>> {
+public interface AbstractService<K, D extends AbstractOutputDto<?>> {
 
 	/**
 	 * Creación de un {@link D}
@@ -19,7 +19,7 @@ public interface AbstractService<K, D extends AbstractDto<?>> {
 	 * @return {@link Optional} de {@link K} que representa la clave primaria o
 	 *         vacío no se pudo persistir
 	 */
-	Optional<K> create(D dto);
+	K create(D dto);
 
 	/**
 	 * Obtencion de un {@link D} a traves de su clave primaria {@link K}
@@ -44,9 +44,9 @@ public interface AbstractService<K, D extends AbstractDto<?>> {
 	 * @param dto {@link D} con los datos a modificar y con la clave primaria
 	 *            {@link K} de la entidad a atacar
 	 * 
-	 * @return {@link Optional} de {@link D} updateado o vacío si falló la operación
+	 * @return {@link Boolean} primitivo indicando el éxito de la operación
 	 */
-	Optional<D> update(D dto);
+	boolean update(D dto);
 
 	/**
 	 * @param id clave primaria {@link K}

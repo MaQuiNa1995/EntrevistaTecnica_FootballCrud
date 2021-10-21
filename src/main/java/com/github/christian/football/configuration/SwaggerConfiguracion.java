@@ -1,11 +1,12 @@
-package com.github.maquina1995.football.configuration;
+package com.github.christian.football.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 import com.fasterxml.classmate.TypeResolver;
-import com.github.maquina1995.football.constants.SwaggerConstants;
+import com.github.christian.football.constants.SwaggerConstants;
+import com.github.christian.football.dto.DivisionEnum;
+import com.github.christian.football.dto.TeamDto;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -19,7 +20,6 @@ import springfox.documentation.spring.web.plugins.Docket;
  * Configuración de swagger
  */
 @Configuration
-@Profile("testing")
 public class SwaggerConfiguracion {
 
 	/**
@@ -35,7 +35,8 @@ public class SwaggerConfiguracion {
 		        .apis(RequestHandlerSelectors.basePackage(SwaggerConstants.PROJECT_CONTROLLER_PATH))
 		        .paths(PathSelectors.any())
 		        .build()
-		        .apiInfo(this.apiInfo());
+		        .apiInfo(this.apiInfo())
+		        .additionalModels(typeResolver.resolve(TeamDto.class), typeResolver.resolve(DivisionEnum.class));
 	}
 
 	/**
@@ -45,12 +46,12 @@ public class SwaggerConfiguracion {
 	 */
 	private ApiInfo apiInfo() {
 
-		final Contact contacto = new Contact(SwaggerConstants.PROJECT_CONTACT_NAME, SwaggerConstants.CONTACT_URL,
+		final Contact contact = new Contact(SwaggerConstants.PROJECT_CONTACT_NAME, SwaggerConstants.CONTACT_URL,
 		        SwaggerConstants.CONTACT_EMAIL);
 
 		return new ApiInfoBuilder().title(SwaggerConstants.PROJECT_TITLE)
 		        .version(SwaggerConstants.PROJECT_API_VERSION)
-		        .contact(contacto)
+		        .contact(contact)
 		        .build();
 	}
 }

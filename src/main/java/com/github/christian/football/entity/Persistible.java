@@ -1,4 +1,4 @@
-package com.github.maquina1995.football.entity;
+package com.github.christian.football.entity;
 
 import java.io.Serializable;
 

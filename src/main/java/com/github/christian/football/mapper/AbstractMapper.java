@@ -1,7 +1,7 @@
-package com.github.maquina1995.football.mapper;
+package com.github.christian.football.mapper;
 
-import com.github.maquina1995.football.dto.AbstractDto;
-import com.github.maquina1995.football.entity.Persistible;
+import com.github.christian.football.dto.AbstractOutputDto;
+import com.github.christian.football.entity.Persistible;
 
 /**
  * Encargado de la transformación de tipos delegando la generación del mapper a
@@ -10,7 +10,7 @@ import com.github.maquina1995.football.entity.Persistible;
  * @param <E> Entidad
  * @param <D> Dto
  */
-public interface AbstractMapper<E extends Persistible<?>, D extends AbstractDto<?>> {
+public interface AbstractMapper<E extends Persistible<?>, D extends AbstractOutputDto<?>> {
 
 	/**
 	 * Transforma un {@link E} a un {@link D}

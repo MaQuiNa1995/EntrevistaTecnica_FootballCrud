@@ -10,32 +10,32 @@ Crear un CRUD para equipos de fútbol.
 
 
 # Requisitos OBLIGATORIOS
-* [ ] Poder crear un equipo con las siguientes propiedades
-  * [ ] Nombre
-  * [ ] Ciudad
-  * [ ] Propietario
-  * [ ] Capacidad del estadio
-  * [ ] División
-  * [ ] Competición
-  * [ ] Número de jugadores
-  * [ ] Fecha de creación
+* [x] Poder crear un equipo con las siguientes propiedades
+  * [x] Nombre
+  * [x] Ciudad
+  * [x] Propietario
+  * [x] Capacidad del estadio
+  * [x] División
+  * [x] Competición
+  * [x] Número de jugadores
+  * [x] Fecha de creación
 
 
-* [ ] Y validar que:
-  * [ ] Nombre (Obligatorio)
-  * [ ] Capacidad del estadio (Positivo)
-  * [ ] División (1, 2, 3)
-  * [ ] Número de jugadores (Positivo)
-  * [ ] Fecha de creación (Anterior a hoy)
-  * [ ] si Division es 1 => Capacidad del estadio debe ser mayor de 50000
-  * [ ] si Division es 2 => Capacidad del estadio debe ser mayor de 10000
-  * [ ] si Division es 3 => Capacidad del estadio debe ser mayor de 3000
+* [x] Y validar que:
+  * [x] Nombre (Obligatorio)
+  * [x] Capacidad del estadio (Positivo)
+  * [x] División (1, 2, 3)
+  * [x] Número de jugadores (Positivo)
+  * [x] Fecha de creación (Anterior a hoy)
+  * [x] si Division es 1 => Capacidad del estadio debe ser mayor de 50000
+  * [x] si Division es 2 => Capacidad del estadio debe ser mayor de 10000
+  * [x] si Division es 3 => Capacidad del estadio debe ser mayor de 3000
 
-* [ ] Obtener una lista de todos los equipos
+* [x] Obtener una lista de todos los equipos
 
-* [ ] Obtener los detalles de un equipo específico
+* [x] Obtener los detalles de un equipo específico
 
-* [ ] Generar la respuesta http de éxito o fracaso como mejor consideres en todos los end-points
+* [x] Generar la respuesta http de éxito o fracaso como mejor consideres en todos los end-points
 
 # Requisitos DESEABLES
 - [ ] Obtener una lista de equipos ordenados por su capacidad de estadio

@@ -1,8 +1,8 @@
-package com.github.maquina1995.football.repository;
+package com.github.christian.football.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.github.maquina1995.football.entity.Team;
+import com.github.christian.football.entity.Team;
 
 public interface TeamRepository extends JpaRepository<Team, Long> {
 

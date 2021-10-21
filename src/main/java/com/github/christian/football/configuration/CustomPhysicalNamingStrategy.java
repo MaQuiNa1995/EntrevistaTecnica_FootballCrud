@@ -1,4 +1,4 @@
-package com.github.maquina1995.football.configuration;
+package com.github.christian.football.configuration;
 
 import java.util.Locale;
 

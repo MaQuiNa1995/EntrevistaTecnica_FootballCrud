@@ -1,4 +1,4 @@
-package com.github.maquina1995.football.service;
+package com.github.christian.football.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.github.maquina1995.football.dto.AbstractDto;
-import com.github.maquina1995.football.entity.Persistible;
-import com.github.maquina1995.football.mapper.AbstractMapper;
+import com.github.christian.football.dto.AbstractOutputDto;
+import com.github.christian.football.entity.Persistible;
+import com.github.christian.football.mapper.AbstractMapper;
 
 /**
  * 
@@ -18,7 +18,7 @@ import com.github.maquina1995.football.mapper.AbstractMapper;
  * @param <E> Entidad
  * @param <D> Dto
  */
-public abstract class AbstractServiceImpl<K extends Serializable, E extends Persistible<K>, D extends AbstractDto<K>>
+public abstract class AbstractServiceImpl<K extends Serializable, E extends Persistible<K>, D extends AbstractOutputDto<K>>
         implements AbstractService<K, D> {
 
 	@Autowired
@@ -29,11 +29,11 @@ public abstract class AbstractServiceImpl<K extends Serializable, E extends Pers
 	protected abstract void updateEntityFields(E dbEntity, E newEntity);
 
 	@Override
-	public Optional<K> create(D dto) {
+	public K create(D dto) {
 
 		E entity = mapper.dtoToEntity(dto);
-		return Optional.of(repository.save(entity)
-		        .getId());
+		return repository.save(entity)
+		        .getId();
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public abstract class AbstractServiceImpl<K extends Serializable, E extends Pers
 
 		E entity = repository.findById(id)
 		        .orElse(null);
-		return Optional.of(mapper.entityToDto(entity));
+		return Optional.ofNullable(mapper.entityToDto(entity));
 	}
 
 	@Override
@@ -54,9 +54,9 @@ public abstract class AbstractServiceImpl<K extends Serializable, E extends Pers
 	}
 
 	@Override
-	public Optional<D> update(D dto) {
+	public boolean update(D dto) {
 
-		D updatedDto = null;
+		boolean updated = false;
 
 		E entity = mapper.dtoToEntity(dto);
 		Optional<E> entityToUpdate = repository.findById(dto.getId());
@@ -68,10 +68,10 @@ public abstract class AbstractServiceImpl<K extends Serializable, E extends Pers
 			updateEntityFields(dbEntity, entity);
 			entity.setId(dbEntity.getId());
 
-			updatedDto = mapper.entityToDto(repository.save(entity));
+			updated = true;
 		}
 
-		return Optional.of(updatedDto);
+		return updated;
 	}
 
 	@Override
