@@ -29,3 +29,5 @@ jobs:
         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
       # API account token to retrieve your remote Codacy configuration for the project being analyzed
         api-token: ${{ secrets.CODACY_TOKEN }}
+      # Optional comma separated list of coverage reports to send to Codacy
+        coverage-reports: ./target/jacoco.xml
