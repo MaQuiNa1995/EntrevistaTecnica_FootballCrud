@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 @CheckDivisionAndCapacity
 @EqualsAndHashCode(callSuper = true)
-public class TeamDto extends AbstractOutputDto<Long> implements Serializable {
+public class TeamDto extends AbstractDto<Long> implements Serializable {
 
 	@NotBlank
 	private String nombre;

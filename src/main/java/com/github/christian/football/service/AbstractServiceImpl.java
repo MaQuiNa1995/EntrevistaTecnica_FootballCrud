@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.github.christian.football.dto.AbstractOutputDto;
+import com.github.christian.football.dto.AbstractDto;
 import com.github.christian.football.entity.Persistible;
 import com.github.christian.football.mapper.AbstractMapper;
 
@@ -18,7 +18,7 @@ import com.github.christian.football.mapper.AbstractMapper;
  * @param <E> Entidad
  * @param <D> Dto
  */
-public abstract class AbstractServiceImpl<K extends Serializable, E extends Persistible<K>, D extends AbstractOutputDto<K>>
+public abstract class AbstractServiceImpl<K extends Serializable, E extends Persistible<K>, D extends AbstractDto<K>>
         implements AbstractService<K, D> {
 
 	@Autowired

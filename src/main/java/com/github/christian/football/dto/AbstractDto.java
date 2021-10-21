@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode
-public abstract class AbstractOutputDto<K extends Serializable> implements Serializable {
+public abstract class AbstractDto<K extends Serializable> implements Serializable {
 	@Null
 	protected K id;
 }

@@ -1,6 +1,6 @@
 package com.github.christian.football.mapper;
 
-import com.github.christian.football.dto.AbstractOutputDto;
+import com.github.christian.football.dto.AbstractDto;
 import com.github.christian.football.entity.Persistible;
 
 /**
@@ -10,7 +10,7 @@ import com.github.christian.football.entity.Persistible;
  * @param <E> Entidad
  * @param <D> Dto
  */
-public interface AbstractMapper<E extends Persistible<?>, D extends AbstractOutputDto<?>> {
+public interface AbstractMapper<E extends Persistible<?>, D extends AbstractDto<?>> {
 
 	/**
 	 * Transforma un {@link E} a un {@link D}

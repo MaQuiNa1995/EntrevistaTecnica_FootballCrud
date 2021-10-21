@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.fasterxml.classmate.TypeResolver;
 import com.github.christian.football.constants.SwaggerConstants;
-import com.github.christian.football.dto.DivisionEnum;
 import com.github.christian.football.dto.TeamDto;
 
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -36,7 +35,7 @@ public class SwaggerConfiguracion {
 		        .paths(PathSelectors.any())
 		        .build()
 		        .apiInfo(this.apiInfo())
-		        .additionalModels(typeResolver.resolve(TeamDto.class), typeResolver.resolve(DivisionEnum.class));
+		        .additionalModels(typeResolver.resolve(TeamDto.class));
 	}
 
 	/**

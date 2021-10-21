@@ -3,13 +3,13 @@ package com.github.christian.football.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.github.christian.football.dto.AbstractOutputDto;
+import com.github.christian.football.dto.AbstractDto;
 
 /**
  * @param <K> Clave primaria
  * @param <D> Dto
  */
-public interface AbstractService<K, D extends AbstractOutputDto<?>> {
+public interface AbstractService<K, D extends AbstractDto<?>> {
 
 	/**
 	 * Creación de un {@link D}

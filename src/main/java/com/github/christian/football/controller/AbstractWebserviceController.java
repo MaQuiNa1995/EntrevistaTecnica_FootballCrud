@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.christian.football.dto.AbstractOutputDto;
+import com.github.christian.football.dto.AbstractDto;
 import com.github.christian.football.service.AbstractService;
 
 /**
@@ -31,7 +31,7 @@ import com.github.christian.football.service.AbstractService;
  * @param <D> dto
  */
 @Validated
-public abstract class AbstractWebserviceController<K extends Serializable, D extends AbstractOutputDto<K>> {
+public abstract class AbstractWebserviceController<K extends Serializable, D extends AbstractDto<K>> {
 
 	@Autowired
 	protected AbstractService<K, D> service;
@@ -60,7 +60,9 @@ public abstract class AbstractWebserviceController<K extends Serializable, D ext
 		Optional<D> dto = service.find(id);
 
 		return dto.isPresent() ? ResponseEntity.status(HttpStatus.OK)
-		        .build() : ResponseEntity.notFound().build();
+		        .build()
+		        : ResponseEntity.notFound()
+		                .build();
 
 	}
 
@@ -75,8 +77,8 @@ public abstract class AbstractWebserviceController<K extends Serializable, D ext
 		                .build();
 	}
 
-	@DeleteMapping
-	public ResponseEntity<D> delete(@RequestParam K id) {
+	@DeleteMapping("/{id}")
+	public ResponseEntity<D> delete(@RequestParam(required = true) K id) {
 		service.delete(id);
 		return ResponseEntity.noContent()
 		        .build();
