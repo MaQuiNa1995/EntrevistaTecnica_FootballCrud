@@ -14,19 +14,21 @@ class DivisionValidator implements ConstraintValidator<CheckDivisionAndCapacity,
 
 		switch (value.getDivision()) {
 		case 1:
-			condition = value.getCapacidadEstadio() > 50000;
+			condition = value.getCapacidadEstadio() <= 50000;
 			break;
 		case 2:
-			condition = value.getCapacidadEstadio() > 10000;
+			condition = value.getCapacidadEstadio() <= 10000;
 			break;
 		case 3:
-			condition = value.getCapacidadEstadio() > 3000;
+			condition = value.getCapacidadEstadio() <= 3000;
 			break;
 		}
 
 		if (!condition) {
 			String validationMessage = this.buildValidationMessage(value.getDivision(), value.getCapacidadEstadio());
-			context.buildConstraintViolationWithTemplate(validationMessage);
+			context.buildConstraintViolationWithTemplate(validationMessage)
+			        .addPropertyNode("capacidadEstadio")
+			        .addConstraintViolation();
 		}
 
 		return condition;
